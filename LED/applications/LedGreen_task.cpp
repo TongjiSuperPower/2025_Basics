@@ -21,10 +21,10 @@ LedGreen::~LedGreen()
 
 
 
-void LED_Green_Task(void const * argument)
+void LED_Green_Task(void)
 {
     
-    LedGreen LedGreen;
+    LedGreen ledgreen;
     while(true)
     {
         HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_11); 

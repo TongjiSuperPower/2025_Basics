@@ -1,0 +1,34 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Flash",
+			"detail": "Download program into STM32",
+			"type": "shell",
+			"command": "openocd",
+			"options": {
+				"cwd": "${command:cmake.getLaunchTargetDirectory}"
+			},
+			"args": [
+				"-f",
+				"../../openocd.cfg",
+				"-c",
+				"program ${command:cmake.getLaunchTargetFilename} verify reset exit"
+			],
+			"group": "build",
+			"dependsOn": "CMake: build"
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: build",
+			"command": "build",
+			"targets": [
+				"all"
+			],
+			"preset": "${command:cmake.activeBuildPresetName}",
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake 模板 生成 任务"
+		}
+	]
+}

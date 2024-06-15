@@ -20,10 +20,10 @@ LedRed::~LedRed()
 
 
 
-void LED_Red_Task(void const * argument)
+void LED_Red_Task(void)
 {
     
-    LedRed LedRed;
+    LedRed ledred;
     while(true)
     {
         HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_12); 
