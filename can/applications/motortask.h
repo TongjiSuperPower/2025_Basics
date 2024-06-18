@@ -24,6 +24,8 @@ public:
     ~Motor();
     void motor_cmd(int16_t motor);
     motor_measure_t *get_motor_measure();
+    void decode_motor_measure(motor_measure_t *ptr, uint8_t data[8]);
+
 private:
 
     motor_measure_t motor_meature;
