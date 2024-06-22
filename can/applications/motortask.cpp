@@ -18,7 +18,7 @@ motor_measure_t * Motor::get_motor_measure() { return &motor_meature; }
 void Motor::motor_cmd(int16_t motor)
 {
   uint32_t send_mail_box;
-  motor_tx_message.StdId = 0x200;
+  motor_tx_message.StdId = 0x1ff;
   motor_tx_message.IDE = CAN_ID_STD;
   motor_tx_message.RTR = CAN_RTR_DATA;
   motor_tx_message.DLC = 0x08;
@@ -49,7 +49,7 @@ Motor motor_6020;
 void motor_task()
 {
   while (1) {
-    motor_6020.motor_cmd(200);
+    motor_6020.motor_cmd(2000);
     vTaskDelay(1);
   }
 }
@@ -64,7 +64,7 @@ void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef * hcan)
 
   HAL_CAN_GetRxMessage(hcan, CAN_RX_FIFO0, &rx_header, rx_data);
 
-  if (rx_header.StdId == 0x201) {
+  if (rx_header.StdId == 0x205) {
     motor_6020.decode_motor_measure(motor_6020.get_motor_measure(), rx_data);
   }
 }
