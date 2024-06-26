@@ -1,0 +1,11 @@
+{
+    "task.autoDetect": "off",
+    "cmake.configureOnOpen": true,
+    "files.associations": {
+        "main.h": "c"
+    },
+    // "editor.formatOnSave": true,
+    // "[c]": {
+    //     "editor.formatOnSave": false
+    // }
+}

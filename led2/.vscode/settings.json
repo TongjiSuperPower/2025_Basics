@@ -1,15 +1,8 @@
 {
+    "task.autoDetect": "off",
     "cmake.configureOnOpen": true,
-    "editor.formatOnSave": true,
-    "[c]": {
-        "editor.formatOnSave": false
-    },
-    "C_Cpp.errorSquiggles": "enabled",
-    "files.associations": {
-        "stm32f4xx_hal_conf.h": "c",
-        "stm32f4xx_hal_def.h": "c",
-        "stm32f4xx.h": "c",
-        "gpio.h": "c",
-        "stm32f4xx_hal.h": "c"
-    }
+    // "editor.formatOnSave": true,
+    // "[c]": {
+    //     "editor.formatOnSave": false
+    // }
 }

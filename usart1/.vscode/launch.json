@@ -5,12 +5,12 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Debug",
+            "name": "OpenOCD: Debug",
             "cwd": "${workspaceFolder}",
             "executable": "${command:cmake.getLaunchTargetPath}",
             "request": "launch",
             "type": "cortex-debug",
-            "runToEntryPoint": "main",
+            // "runToEntryPoint": "main",
             "servertype": "openocd",
             "configFiles": [
                 "openocd.cfg",

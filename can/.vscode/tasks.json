@@ -2,9 +2,8 @@
 	"version": "2.0.0",
 	"tasks": [
 		{
-			"label": "Flash",
-			"detail": "Download program into STM32",
 			"type": "shell",
+			"label": "OpenOCD: flash",
 			"command": "openocd",
 			"options": {
 				"cwd": "${command:cmake.getLaunchTargetDirectory}"
@@ -16,7 +15,8 @@
 				"program ${command:cmake.getLaunchTargetFilename} verify reset exit"
 			],
 			"group": "build",
-			"dependsOn": "CMake: build"
+			"dependsOn": "CMake: build",
+			"detail": "Download program into STM32"
 		},
 		{
 			"type": "cmake",
@@ -28,7 +28,19 @@
 			"preset": "${command:cmake.activeBuildPresetName}",
 			"group": "build",
 			"problemMatcher": [],
-			"detail": "CMake 模板 生成 任务"
+			"detail": "CMake template build task"
+		},
+		{
+			"type": "cmake",
+			"label": "CMake: clean rebuild",
+			"command": "cleanRebuild",
+			"targets": [
+				"all"
+			],
+			"preset": "${command:cmake.activeBuildPresetName}",
+			"group": "build",
+			"problemMatcher": [],
+			"detail": "CMake template clean rebuild task"
 		}
 	]
 }
