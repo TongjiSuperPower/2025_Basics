@@ -1,0 +1,8 @@
+{
+    "task.autoDetect": "off",
+    "cmake.configureOnOpen": true,
+    // "editor.formatOnSave": true,
+    // "[c]": {
+    //     "editor.formatOnSave": false
+    // }
+}
