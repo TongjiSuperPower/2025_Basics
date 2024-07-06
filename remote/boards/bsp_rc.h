@@ -37,33 +37,25 @@
 /* ----------------------- Data Struct ------------------------------------- */
 
 #ifdef __GNUC__
-// 对于GCC编译器
-#define PACKED_STRUCT __attribute__((__packed__))
+// GCC编译器
+#define PACKED __attribute__((__packed__))
 #elif defined(_MSC_VER)
-// 对于Microsoft编译器
-#define PACKED_STRUCT __pragma(pack(push, 1))
-#define PACKED_STRUCT_END __pragma(pack(pop))
+// MSVC编译器
+#define PACKED
+#pragma pack(push, 1)
 #else
 // 其他编译器可以根据需要添加更多定义
-#define PACKED_STRUCT
-#define PACKED_STRUCT_END
+#define PACKED
 #endif
 
-#ifndef PACKED_STRUCT_END
-#define PACKED_STRUCT_END
-#endif
-
-PACKED_STRUCT
-typedef struct
+typedef struct PACKED
 {
-    PACKED_STRUCT
-    struct
+    struct PACKED
     {
         int16_t ch[5];
         char s[2];
     } rc;
-    PACKED_STRUCT
-    struct
+    struct PACKED
     {
         int16_t x;
         int16_t y;
@@ -71,14 +63,16 @@ typedef struct
         uint8_t press_l;
         uint8_t press_r;
     } mouse;
-    PACKED_STRUCT
-    struct
+    struct PACKED
     {
         uint16_t v;
     } key;
-
 } RC_ctrl_t;
-PACKED_STRUCT_END
+
+#ifdef _MSC_VER
+#pragma pack(pop)
+#endif
+
 
 
 
