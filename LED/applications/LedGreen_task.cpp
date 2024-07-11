@@ -1,37 +1,20 @@
+#include "LedGreen_task.hpp"
 
-
-
-#include "LedGreen_task.h"
+#include "cmsis_os.h"
 #include "gpio.h"
 #include "main.h"
 
-#include "cmsis_os.h"
+LedGreen::LedGreen() { HAL_GPIO_WritePin(GPIOH, GPIO_PIN_11, GPIO_PIN_SET); }
 
+LedGreen::~LedGreen() {}
 
-extern "C"
-{
-
-LedGreen::LedGreen()
-{
-    HAL_GPIO_WritePin(GPIOH, GPIO_PIN_11,GPIO_PIN_SET); 
-}
-
-LedGreen::~LedGreen()
-{}
-
-
-
+extern "C" {
 void LED_Green_Task(void)
 {
-    
-    LedGreen ledgreen;
-    while(true)
-    {
-        HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_11); 
-        vTaskDelay(200); 
-    }
-
+  LedGreen ledgreen;
+  while (true) {
+    HAL_GPIO_TogglePin(GPIOH, GPIO_PIN_11);
+    vTaskDelay(200);
+  }
 }
-
 }
-

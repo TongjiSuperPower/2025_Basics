@@ -7,9 +7,8 @@ extern "C" {
 
 void Servo_rotate(void);
 
-
 #ifdef __cplusplus
 }
 #endif
 
-#endif 
+#endif
