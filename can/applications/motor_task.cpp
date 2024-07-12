@@ -1,10 +1,9 @@
-#include "motortask.hpp"
-
 #include "cmsis_os.h"
 #include "main.h"
 #include "motor_protocol/rm_motor/rm_motor.hpp"
 
-rm_motor motor_6020;
+motor_protocol::RM_Motor motor_6020;
+
 extern "C" {
 
 void motor_task()

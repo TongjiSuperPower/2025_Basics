@@ -1,13 +1,10 @@
 #include "rm_motor.hpp"
 
-rm_motor::rm_motor() {}
+namespace motor_protocol
+{
+CAN_HandleTypeDef hcan1;
 
-rm_motor::~rm_motor() {}
-
-extern CAN_HandleTypeDef hcan1;
-// extern CAN_HandleTypeDef hcan2;
-
-HAL_StatusTypeDef rm_motor::motor_cmd(
+HAL_StatusTypeDef RM_Motor::motor_cmd(
   uint8_t can_id, uint32_t stdid, int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4)
 {
   uint32_t send_mail_box;
@@ -30,7 +27,7 @@ HAL_StatusTypeDef rm_motor::motor_cmd(
   return HAL_ERROR;
 }
 
-void rm_motor::decode_motor_measure(uint8_t motor_id, uint8_t data[8])
+void RM_Motor::decode_motor_measure(uint8_t motor_id, uint8_t data[8])
 {
   motor_measure_[motor_id].last_ecd = motor_measure_[motor_id].ecd;
   motor_measure_[motor_id].ecd = (uint16_t)((data)[0] << 8 | (data)[1]);
@@ -39,3 +36,5 @@ void rm_motor::decode_motor_measure(uint8_t motor_id, uint8_t data[8])
   motor_measure_[motor_id].temperate = (uint8_t)(data)[6];
   return;
 }
+
+}  // namespace motor_protocol

@@ -4,7 +4,9 @@
 #include "cstdint"
 #include "main.h"
 
-class rm_motor
+namespace motor_protocol
+{
+class RM_Motor
 {
 private:
   static const uint8_t RM_MOTOR_NUM = 1;
@@ -20,11 +22,13 @@ private:
   uint8_t motor_can_send_data_[8];
 
 public:
-  rm_motor();
-  ~rm_motor();
+  RM_Motor() {}
+  ~RM_Motor() {}
   HAL_StatusTypeDef motor_cmd(
     uint8_t can_id, uint32_t stdid, int16_t motor1, int16_t motor2, int16_t motor3, int16_t motor4);
   void decode_motor_measure(uint8_t motor_id, uint8_t data[8]);
 };
+
+}  // namespace motor_protocol
 
 #endif  // _RM_MOTOR_HPP_
