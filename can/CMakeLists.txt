@@ -50,6 +50,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     applications/motortask.cpp
     board/bsp_can.c
+    sp_middleware/motor_protocol/rm_motor/rm_motor.cpp
 )
 
 # Add include paths
@@ -57,6 +58,7 @@ target_include_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined include paths
     applications
     board
+    sp_middleware
 )
 
 # Add project symbols (macros)

@@ -1,8 +1,11 @@
 {
     "task.autoDetect": "off",
     "cmake.configureOnOpen": true,
-    // "editor.formatOnSave": true,
-    // "[c]": {
-    //     "editor.formatOnSave": false
-    // }
+    "editor.formatOnSave": true,
+    "[c]": {
+        "editor.formatOnSave": false
+    },
+    "files.associations": {
+        "compare": "cpp"
+    }
 }
