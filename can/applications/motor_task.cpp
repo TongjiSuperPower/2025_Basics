@@ -3,17 +3,20 @@
 #include "motor_protocol/rm_motor/rm_motor.hpp"
 
 motor_protocol::RM_Motor motor_6020;
+extern CAN_HandleTypeDef hcan1;
 
 extern "C" {
 
+// 电机任务
 void motor_task()
 {
   while (1) {
-    motor_6020.motor_cmd(1, 0X1FE, 2000, 2000, 2000, 2000);
+    motor_6020.motor_cmd(&hcan1, 0X1FE, 2000, 2000, 2000, 2000);
     vTaskDelay(1);
   }
 }
 
+// CAN回调函数
 void HAL_CAN_RxFifo0MsgPendingCallback(CAN_HandleTypeDef * hcan)
 {
   CAN_RxHeaderTypeDef rx_header;
