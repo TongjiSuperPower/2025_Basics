@@ -1,9 +1,9 @@
 {
     "task.autoDetect": "off",
     "editor.formatOnSave": true,
-    // "[c]": {
-    //     "editor.formatOnSave": false,
-    // },
+    "[c]": {
+        "editor.formatOnSave": false,
+    },
     "cortex-debug.variableUseNaturalFormat": true,
     "cmake.configureOnOpen": true,
     "cmake.options.advanced": {
