@@ -1,13 +1,7 @@
-# 文档章节与文件夹对应： 
+# 这是SuperPower战队25赛季电控组招新样例
 
-GPIO       -->      led2
+本赛季将采用全新的工作流，全面拥抱C++（~~终于不用被上古时代的Keil折磨了~~）
 
-Timer      -->      servo
+用CubeMX生成CMake风格的代码后，将workflow文件夹里的文件复制进生成的文件夹即可
 
-FreeRTOS   -->      LED
 
-UART       -->      usart1 usart2 usart3
-
-CAN        -->      can
-
-INS        -->      ins
