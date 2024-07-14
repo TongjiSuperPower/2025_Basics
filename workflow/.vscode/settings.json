@@ -4,6 +4,9 @@
     "[c]": {
         "editor.formatOnSave": false,
     },
+    "files.associations": {
+        "*.h": "c"
+    },
     "cortex-debug.variableUseNaturalFormat": true,
     "cmake.configureOnOpen": true,
     "cmake.options.advanced": {
