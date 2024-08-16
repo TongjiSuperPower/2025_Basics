@@ -20,9 +20,10 @@
 #include "main.h"
 #include "tim.h"
 #include "gpio.h"
+
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
-#include "servo.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,16 +89,18 @@ int main(void)
   MX_GPIO_Init();
   MX_TIM1_Init();
   /* USER CODE BEGIN 2 */
-  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1);
-  
+
+  HAL_TIM_PWM_Start(&htim1, TIM_CHANNEL_1); // Start PWM signal generation on TIM1 channel 1
+
   /* USER CODE END 2 */
 
   /* Infinite loop */
   /* USER CODE BEGIN WHILE */
   while (1)
   {
-    Servo_rotate();
     /* USER CODE END WHILE */
+
+    servo_rotate(); // Call the function to rotate the servo motor
 
     /* USER CODE BEGIN 3 */
   }

@@ -43,15 +43,13 @@ add_subdirectory(cmake/stm32cubemx)
 # Link directories setup
 target_link_directories(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user defined library search paths
-
 )
-
 
 # Add sources to executable
 target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
-    applications/LedGreen_task.cpp
-    applications/LedRed_task.cpp
+    applications/led_green.cpp
+    applications/led_red.cpp
 )
 
 # Add include paths

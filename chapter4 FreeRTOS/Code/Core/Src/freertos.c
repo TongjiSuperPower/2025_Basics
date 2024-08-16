@@ -48,8 +48,8 @@
 
 /* USER CODE END Variables */
 osThreadId defaultTaskHandle;
-osThreadId LED1Handle;
-osThreadId LED2Handle;
+osThreadId LED_REDHandle;
+osThreadId LED_GREENHandle;
 
 /* Private function prototypes -----------------------------------------------*/
 /* USER CODE BEGIN FunctionPrototypes */
@@ -57,8 +57,8 @@ osThreadId LED2Handle;
 /* USER CODE END FunctionPrototypes */
 
 void StartDefaultTask(void const * argument);
-extern void LED_Red_Task(void const * argument);
-extern void LED_Green_Task(void const * argument);
+extern void led_red_task(void const * argument);
+extern void led_green_task(void const * argument);
 
 void MX_FREERTOS_Init(void); /* (MISRA C 2004 rule 8.1) */
 
@@ -109,13 +109,13 @@ void MX_FREERTOS_Init(void) {
   osThreadDef(defaultTask, StartDefaultTask, osPriorityNormal, 0, 128);
   defaultTaskHandle = osThreadCreate(osThread(defaultTask), NULL);
 
-  /* definition and creation of LED1 */
-  osThreadDef(LED1, LED_Red_Task, osPriorityBelowNormal, 0, 128);
-  LED1Handle = osThreadCreate(osThread(LED1), NULL);
+  /* definition and creation of LED_RED */
+  osThreadDef(LED_RED, led_red_task, osPriorityBelowNormal, 0, 128);
+  LED_REDHandle = osThreadCreate(osThread(LED_RED), NULL);
 
-  /* definition and creation of LED2 */
-  osThreadDef(LED2, LED_Green_Task, osPriorityBelowNormal, 0, 128);
-  LED2Handle = osThreadCreate(osThread(LED2), NULL);
+  /* definition and creation of LED_GREEN */
+  osThreadDef(LED_GREEN, led_green_task, osPriorityBelowNormal, 0, 128);
+  LED_GREENHandle = osThreadCreate(osThread(LED_GREEN), NULL);
 
   /* USER CODE BEGIN RTOS_THREADS */
   /* add threads, ... */
