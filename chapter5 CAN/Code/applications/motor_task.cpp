@@ -11,7 +11,7 @@ extern "C" {
 void motor_task()
 {
   while (1) {
-    motor_6020.motor_cmd(&hcan1, 0X1FE, 2000, 2000, 2000, 2000);
+    motor_6020.motor_cmd(&hcan1, 0x1FF, 2000, 2000, 2000, 2000);
     vTaskDelay(1);
   }
 }
