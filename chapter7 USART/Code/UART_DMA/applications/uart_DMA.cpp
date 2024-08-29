@@ -6,7 +6,7 @@ struct PlotFrame
 {
   uint8_t start[2] = {0xAA, 0xBB};
   uint8_t size;
-  float data;
+  float data[6];
 };
 #pragma pack()
 
@@ -17,7 +17,7 @@ extern "C" void uart_send_task()
 {
   while (1) {
     plot_frame.size = 4 * 1;
-    plot_frame.data = i;
+    plot_frame.data[0] = i;
 
     HAL_UART_Transmit_DMA(
       &huart1, (uint8_t *)&plot_frame,
