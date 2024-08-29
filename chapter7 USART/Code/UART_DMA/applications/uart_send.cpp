@@ -2,7 +2,7 @@
 #include "dbus.hpp"
 #include "usart.h"
 
-#pragma pack(1)
+#pragma pack(1)  // ×Ö½Ú¶ÔÆë
 struct PlotFrame
 {
   uint8_t start[2] = {0xAA, 0xBB};

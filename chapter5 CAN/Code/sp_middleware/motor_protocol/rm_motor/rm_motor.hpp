@@ -31,7 +31,7 @@ public:
     CAN_HandleTypeDef * hcan, uint32_t stdid, int16_t motor1, int16_t motor2, int16_t motor3,
     int16_t motor4);
   // 解码电机数据
-  void decode_motor_measure(uint8_t motor_id, uint8_t data[8]);
+  void decode_motor_measure(uint8_t motor_id, uint8_t * data);
 };
 
 }  // namespace motor_protocol
