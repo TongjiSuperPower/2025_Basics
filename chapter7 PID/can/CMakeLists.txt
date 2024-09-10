@@ -50,6 +50,7 @@ target_sources(${CMAKE_PROJECT_NAME} PRIVATE
     # Add user sources here
     applications/motor_task.cpp
     applications/pid.cpp
+    applications/can_received.cpp
 )
 
 # Add include paths
